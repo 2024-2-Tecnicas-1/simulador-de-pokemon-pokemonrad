@@ -1,5 +1,15 @@
 package simulador.pokemon;
 
-public class TipoPokemon {
-    // TODO: Aquí va tu código
+public enum TipoPokemon {
+    FUEGO,
+    AGUA,
+    PLANTA,
+    ELECTRICO,
+    PSIQUICO,
+    HADA,
+    TIERRA,
+    HIELO,
+    ROCA,
+    VENENO,
+    VOLADOR
 }
