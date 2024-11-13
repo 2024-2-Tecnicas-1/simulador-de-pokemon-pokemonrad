@@ -5,7 +5,7 @@ import simulador.pokemon.*;
 import simulador.entrenador.Entrenador;
 import simulador.batalla.Batalla;
 
-public class Poke {
+public class Principal {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -19,7 +19,7 @@ public class Poke {
             new Tentacool(),
             new Tangela(),
             new Electabuzz(),
-            new Mime(),
+            new mime(),
             new Sandshrew(),
             new Jynx(),
             new Aerodactyl(),
