@@ -1,13 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package simulador.pokemon;
 
-/**
- *
- * @author USUARIO
- */
-public class Sandshrew {
-    
+package simulador.pokemon;
+public class Sandshrew extends Pokemon {
+    public Sandshrew() {
+        super("Sandshrew", 50, 75, TipoPokemon.TIERRA);
+    }
+
+    @Override
+    public void habilidadEspecial() {
+        System.out.println(getNombre() + " usa Terratemblor y aumenta su ataque en 5 puntos!");
+        setAtaque(getAtaque() + 5);
+    }
 }

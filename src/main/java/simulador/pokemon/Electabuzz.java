@@ -1,13 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package simulador.pokemon;
 
-/**
- *
- * @author USUARIO
- */
-public class Electabuzz {
-    
+public class Electabuzz extends Pokemon {
+    public Electabuzz() {
+        super("Electabuzz", 65, 83, TipoPokemon.ELECTRICO);
+    }
+
+    @Override
+    public void habilidadEspecial() {
+        System.out.println(getNombre() + " usa Impactrueno y aumenta su ataque en 15 puntos!");
+        setAtaque(getAtaque() + 15);
+    }
 }
