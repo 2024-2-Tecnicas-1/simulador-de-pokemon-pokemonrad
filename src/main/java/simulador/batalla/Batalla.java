@@ -4,8 +4,6 @@ import java.util.Random;
 import simulador.pokemon.Pokemon;
 
 public class Batalla {
-    // TODO: Aquí va tu código
-
  public static void iniciarBatalla(Pokemon p1, Pokemon p2) {
         System.out.println("¡Comienza la batalla entre " + p1.getNombre() + " y " + p2.getNombre() + "!");
 
