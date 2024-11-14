@@ -5,6 +5,7 @@ import simulador.pokemon.*;
 import simulador.entrenador.Entrenador;
 import simulador.batalla.Batalla;
 
+
 public class Principal {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -107,25 +108,50 @@ public class Principal {
         }
     }
 
+    private static Pokemon seleccionarPokemon(Scanner scanner, Entrenador entrenador) {
+        System.out.println(entrenador.getNombre() + ", selecciona tu Pokémon:");
+        mostrarEquipo(entrenador);
+        System.out.print("Elige un Pokémon (1-" + entrenador.getEquipo().size() + "): ");
+        int indice = scanner.nextInt() - 1;  
+        if (indice < 0 || indice >= entrenador.getEquipo().size()) {
+            System.out.println("Selección inválida.");
+            return null;
+        }
+
+        Pokemon pokemonSeleccionado = entrenador.getEquipo().get(indice);
+        if (pokemonSeleccionado.isSeleccionadoParaBatalla()) {
+            System.out.println(pokemonSeleccionado.getNombre() + " ya ha sido seleccionado para la batalla.");
+            return null;  
+        }
+
+        return pokemonSeleccionado;
+    }
+
     private static void iniciarBatalla(Scanner scanner, Entrenador entrenador1, Entrenador entrenador2) {
         System.out.println("\n--- Iniciar Batalla ---");
 
-        System.out.println(entrenador1.getNombre() + ", selecciona tu Pokémon:");
-        mostrarEquipo(entrenador1);
-        System.out.print("Elige un Pokémon (1-" + entrenador1.getEquipo().size() + "): ");
-        int indice1 = scanner.nextInt();
-        Pokemon pokemonEntrenador1 = entrenador1.elegirPokemon(indice1 - 1);
-
-        System.out.println(entrenador2.getNombre() + ", selecciona tu Pokémon:");
-        mostrarEquipo(entrenador2);
-        System.out.print("Elige un Pokémon (1-" + entrenador2.getEquipo().size() + "): ");
-        int indice2 = scanner.nextInt();
-        Pokemon pokemonEntrenador2 = entrenador2.elegirPokemon(indice2 - 1);
-
-        if (pokemonEntrenador1 != null && pokemonEntrenador2 != null) {
-            Batalla.iniciarBatalla(pokemonEntrenador1, pokemonEntrenador2);
-        } else {
-            System.out.println("Error: Selección inválida de Pokémon.");
+        
+        Pokemon pokemonEntrenador1 = seleccionarPokemon(scanner, entrenador1);
+        if (pokemonEntrenador1 == null) {
+            System.out.println("Selección de Pokémon inválida. Batalla cancelada.");
+            return;  
         }
+
+        
+        Pokemon pokemonEntrenador2 = seleccionarPokemon(scanner, entrenador2);
+        if (pokemonEntrenador2 == null) {
+            System.out.println("Selección de Pokémon inválida. Batalla cancelada.");
+            return;  
+        }
+
+        
+        pokemonEntrenador1.setSeleccionadoParaBatalla(true);
+        pokemonEntrenador2.setSeleccionadoParaBatalla(true);
+
+        
+        Batalla.iniciarBatalla(pokemonEntrenador1, pokemonEntrenador2);
+
+        
+        System.out.println("\nLa batalla ha terminado. Regresando al menú...");
     }
 }

@@ -34,8 +34,8 @@ public class Entrenador {
         if (indice >= 0 && indice < equipo.size()) {
             Pokemon pokemon = equipo.get(indice);
             System.out.println(nombre + " entrena a " + pokemon.getNombre() + "!");
-            int aumentoSalud = (int) (pokemon.getSalud() * 0.20); // Aumentar salud en un 20%
-            pokemon.setSalud(pokemon.getSalud() + aumentoSalud);   // Actualizar la salud del Pokémon
+            int aumentoSalud = (int) (pokemon.getSalud() * 0.20); 
+            pokemon.setSalud(pokemon.getSalud() + aumentoSalud);   
             System.out.println(pokemon.getNombre() + " ahora tiene " + pokemon.getSalud() + " puntos de salud.");
         } else {
             System.out.println("Índice de Pokémon inválido.");
