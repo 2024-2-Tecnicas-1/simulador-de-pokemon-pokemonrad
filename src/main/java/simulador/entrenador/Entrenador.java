@@ -26,7 +26,7 @@ public class Entrenador {
             equipo.add(pokemon);
             System.out.println(pokemon.getNombre() + " ha sido añadido al equipo de " + nombre + "!");
         } else {
-            System.out.println("El equipo ya está completo. No se puede añadir más Pokémon.");
+            System.out.println("El equipo ya esta completo. No se puede añadir más Pokemon.");
         }
     }
  
@@ -38,7 +38,7 @@ public class Entrenador {
             pokemon.setSalud(pokemon.getSalud() + aumentoSalud);   
             System.out.println(pokemon.getNombre() + " ahora tiene " + pokemon.getSalud() + " puntos de salud.");
         } else {
-            System.out.println("Índice de Pokémon inválido.");
+            System.out.println("Indice de Pokemon inválido.");
         }
     }
  

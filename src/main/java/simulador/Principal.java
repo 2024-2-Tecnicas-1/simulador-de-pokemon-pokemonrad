@@ -30,12 +30,12 @@ public class Principal {
 
         int opcion;
         do {
-            System.out.println("\n--- Menú Principal ---");
+            System.out.println("\n--- Menu Principal ---");
             System.out.println("1. Gestionar Entrenadores");
-            System.out.println("2. Gestionar Pokémones");
+            System.out.println("2. Gestionar Pokemones");
             System.out.println("3. Iniciar Batalla");
             System.out.println("0. Salir");
-            System.out.print("Seleccione una opción: ");
+            System.out.print("Seleccione una opcion: ");
             opcion = scanner.nextInt();
 
             switch (opcion) {
@@ -52,7 +52,7 @@ public class Principal {
                     System.out.println("Saliendo del simulador.");
                     break;
                 default:
-                    System.out.println("Opción inválida. Intente nuevamente.");
+                    System.out.println("Opcion invalida. Intente nuevamente.");
             }
         } while (opcion != 0);
     }
@@ -67,31 +67,31 @@ public class Principal {
         Entrenador entrenadorSeleccionado = (opcion == 1) ? entrenador1 : entrenador2;
 
         System.out.println("\nOpciones:");
-        System.out.println("1. Agregar Pokémon al equipo");
-        System.out.println("2. Entrenar Pokémon (aumenta HP)");
+        System.out.println("1. Agregar Pokemon al equipo");
+        System.out.println("2. Entrenar Pokemon (aumenta HP)");
         System.out.print("Seleccione una opción: ");
         int opcionEntrenador = scanner.nextInt();
 
         switch (opcionEntrenador) {
             case 1:
                 mostrarPokemons(pokemons);
-                System.out.print("Seleccione el Pokémon que desea agregar (1-10): ");
+                System.out.print("Seleccione el Pokemon que desea agregar (1-10): ");
                 int indicePokemon = scanner.nextInt();
                 entrenadorSeleccionado.agregarPokemon(pokemons[indicePokemon - 1]);
                 break;
             case 2:
                 mostrarEquipo(entrenadorSeleccionado);
-                System.out.print("Seleccione el Pokémon que desea entrenar: ");
+                System.out.print("Seleccione el Pokemon que desea entrenar: ");
                 int indiceEntrenar = scanner.nextInt();
                 entrenadorSeleccionado.entrenarPokemon(indiceEntrenar - 1);
                 break;
             default:
-                System.out.println("Opción inválida.");
+                System.out.println("Opción invalida.");
         }
     }
 
     private static void mostrarPokemons(Pokemon[] pokemons) {
-        System.out.println("\n--- Lista de Pokémon ---");
+        System.out.println("\n--- Lista de Pokemon ---");
         for (int i = 0; i < pokemons.length; i++) {
             System.out.println((i + 1) + ". " + pokemons[i].getNombre() + 
                                " (Tipo: " + pokemons[i].getTipo() + 
@@ -109,9 +109,9 @@ public class Principal {
     }
 
     private static Pokemon seleccionarPokemon(Scanner scanner, Entrenador entrenador) {
-        System.out.println(entrenador.getNombre() + ", selecciona tu Pokémon:");
+        System.out.println(entrenador.getNombre() + ", selecciona tu Pokemon:");
         mostrarEquipo(entrenador);
-        System.out.print("Elige un Pokémon (1-" + entrenador.getEquipo().size() + "): ");
+        System.out.print("Elige un Pokemon (1-" + entrenador.getEquipo().size() + "): ");
         int indice = scanner.nextInt() - 1;  
         if (indice < 0 || indice >= entrenador.getEquipo().size()) {
             System.out.println("Selección inválida.");
@@ -133,14 +133,14 @@ public class Principal {
         
         Pokemon pokemonEntrenador1 = seleccionarPokemon(scanner, entrenador1);
         if (pokemonEntrenador1 == null) {
-            System.out.println("Selección de Pokémon inválida. Batalla cancelada.");
+            System.out.println("Selección de Pokemon inválida. Batalla cancelada.");
             return;  
         }
 
         
         Pokemon pokemonEntrenador2 = seleccionarPokemon(scanner, entrenador2);
         if (pokemonEntrenador2 == null) {
-            System.out.println("Selección de Pokémon inválida. Batalla cancelada.");
+            System.out.println("Seleccion de Pokemon invalida. Batalla cancelada.");
             return;  
         }
 
